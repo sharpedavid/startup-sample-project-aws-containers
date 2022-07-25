@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:h2:./test;AUTO_SERVER=TRUE
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${base-oauth-url}
+          jwk-set-uri: ${base-oauth-url}/protocol/openid-connect/certs
+  port: 80
+logging:
+  level:
+    org:
+      hibernate:
+        type: TRACE
+#base-oauth-url: http://localhost:8080/realms/master
+base-oauth-url: https://common-logon-dev.hlth.gov.bc.ca/auth/realms/moh_applications
+organization-api-client-id: ORGANIZATIONS-API
