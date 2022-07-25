@@ -1,4 +1,4 @@
-package com.cgi.sharpe.a.david.ecsdemo;
+package ca.bc.hlth.mohorganizations;
 
 public class Greeting {
 

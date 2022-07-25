@@ -1,4 +1,4 @@
-package com.cgi.sharpe.a.david.ecsdemo;
+package ca.bc.hlth.mohorganizations;
 
 import java.util.concurrent.atomic.AtomicLong;
 
