@@ -1,13 +1,13 @@
-package com.cgi.sharpe.a.david.ecsdemo;
+package ca.bc.hlth.mohorganizations;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EcsDemoApplication {
+public class OrganizationsApiApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(EcsDemoApplication.class, args);
+        SpringApplication.run(OrganizationsApiApplication.class, args);
     }
 
 }
