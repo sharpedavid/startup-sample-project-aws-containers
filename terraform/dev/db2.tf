@@ -15,7 +15,7 @@ resource "aws_iam_role_policy" "sample_app_dynamodb2" {
   name = "sample_app_dynamodb"
   role = aws_iam_role.sample_app_container_role.id
 
-  policy = <<-EOF
+  policy = jsonencode(
     {
     "Version": "2012-10-17",
     "Statement": [
@@ -34,9 +34,9 @@ resource "aws_iam_role_policy" "sample_app_dynamodb2" {
               "dynamodb:Update*",
               "dynamodb:PutItem"
           ],
-          "Resource": "${aws_dynamodb_table.startup_sample_table2.arn}"
+          "Resource": "arn:aws:dynamodb:ca-central-1:750307557100:table/ProductInfo"
         }
     ]
   }
-  EOF
+  )
 }
