@@ -27,3 +27,9 @@ base-oauth-url: https://common-logon-dev.hlth.gov.bc.ca/auth/realms/moh_applicat
 organization-api-client-id: ORGANIZATIONS-API
 server:
   port: 80
+amazon:
+  dynamodb:
+    endpoint: http://localhost:8000/
+  aws:
+    accesskey: key
+    secretkey: key2
