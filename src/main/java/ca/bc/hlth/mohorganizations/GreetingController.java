@@ -1,17 +1,13 @@
 package ca.bc.hlth.mohorganizations;
 
-import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
-
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.amazonaws.services.dynamodbv2.model.CreateTableRequest;
-import com.amazonaws.services.dynamodbv2.model.ProvisionedThroughput;
-import com.amazonaws.services.dynamodbv2.model.ResourceInUseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 public class GreetingController {
@@ -27,18 +23,6 @@ public class GreetingController {
 
 	@GetMapping("/greeting")
 	public Greeting greeting(@RequestParam(value = "name", defaultValue = "${GREETING:World}") String name) {
-
-		DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(amazonDynamoDB);
-
-		CreateTableRequest tableRequest = dynamoDBMapper
-				.generateCreateTableRequest(ProductInfo.class);
-		tableRequest.setProvisionedThroughput(
-				new ProvisionedThroughput(1L, 1L));
-		try {
-			amazonDynamoDB.createTable(tableRequest);
-		} catch (ResourceInUseException e) {
-			// ignore
-		}
 
 		ProductInfo productInfo = new ProductInfo("2", "1");
 		repository.save(productInfo);
