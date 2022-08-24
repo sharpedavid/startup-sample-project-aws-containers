@@ -15,7 +15,7 @@ resource "aws_iam_role_policy" "sample_app_dynamodb2" {
   name = "sample_app_dynamodb"
   role = aws_iam_role.sample_app_container_role.id
 
-  policy = <<-EOF
+  policy = jsonencode(
     {
     "Version": "2012-10-17",
     "Statement": [
@@ -38,5 +38,5 @@ resource "aws_iam_role_policy" "sample_app_dynamodb2" {
         }
     ]
   }
-  EOF
+  )
 }
